@@ -12,17 +12,17 @@ var search = regex.exec(document.body.innerText);
 // Functions
 function filterMild() {
 	console.log("Filtering Ghomeshi with Mild filter...");
-	return $(":contains('Ghomeshi'), :contains('TRUMP'), :contains('trump')").filter("h1,h2,h3,h4,h5,p,span,li");
+	return $(":contains('Ghomeshi'), :contains('GHOMESHI'), :contains('ghomeshi')").filter("h1,h2,h3,h4,h5,p,span,li");
 }
 
 function filterDefault () {
 	console.log("Filtering Ghomeshi with Default filter...");
-	return $(":contains('Ghomeshi'), :contains('TRUMP'), :contains('trump')").filter(":only-child").closest('div');
+	return $(":contains('Ghomeshi'), :contains('GHOMESHI'), :contains('ghomeshi')").filter(":only-child").closest('div');
 }
 
 function filterVindictive() {
 	console.log("Filtering Ghomeshi with Vindictive filter...");
-	return $(":contains('Ghomeshi'), :contains('TRUMP'), :contains('trump')").filter(":not('body'):not('html')");
+	return $(":contains('Ghomeshi'), :contains('GHOMESHI'), :contains('ghomeshi')").filter(":not('body'):not('html')");
 }
 
 function getElements(filter) {
@@ -51,7 +51,7 @@ if (search) {
 	   elements = getElements(items.filter);
 	   filterElements(elements);
 	   chrome.runtime.sendMessage({method: "saveStats", trumps: elements.length}, function(response) {
-			  console.log("Logging " + elements.length + " trumps."); 
+			  console.log("Logging " + elements.length + " ghomeshis.");
 		 });
 	 });
   chrome.runtime.sendMessage({}, function(response) {});
